@@ -7,31 +7,7 @@
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
-
     <script src="Build/web.loader.js"></script>
-
-    <!-- Scriptul pentru descărcarea fișierului -->
-    <script>
-      function DownloadFile(fileName, fileData, dataLength) {
-        // Creează un blob din datele fișierului
-        const arrayBuffer = new Uint8Array(fileData, 0, dataLength);
-        const blob = new Blob([arrayBuffer], { type: "image/png" });
-
-        // Creează un link temporar pentru descărcare
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = fileName;
-
-        // Trigger descărcarea
-        document.body.appendChild(link);
-        link.click();
-
-        // Curăță
-        document.body.removeChild(link);
-        URL.revokeObjectURL(link.href);
-      }
-    </script>
-
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
